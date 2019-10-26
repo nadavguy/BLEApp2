@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimpleBluetooth.iml" filepath="$PROJECT_DIR$/SimpleBluetooth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BLEApp.iml" filepath="$PROJECT_DIR$/BLEApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repos-BLEApp.iml" filepath="$PROJECT_DIR$/repos-BLEApp.iml" />
     </modules>
   </component>
 </project>

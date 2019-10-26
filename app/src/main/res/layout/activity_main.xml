@@ -113,13 +113,27 @@
             android:layout_toEndOf="@+id/checkboxLED1" />
 
         <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/devicesListView"
-            android:choiceMode="singleChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="214dp"
             android:layout_below="@+id/PairedBtn"
+            android:layout_alignEnd="@+id/off"
             android:layout_alignRight="@+id/off"
-            android:layout_alignEnd="@+id/off" />
+            android:choiceMode="singleChoice" />
+
+        <EditText
+            android:id="@+id/FreeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="TextToSend" />
+
+        <Button
+            android:id="@+id/SendFreeTextbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send" />
 
     </LinearLayout>
 

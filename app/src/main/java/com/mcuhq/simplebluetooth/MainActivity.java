@@ -36,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private Button mOffBtn;
     private Button mListPairedDevicesBtn;
     private Button mDiscoverBtn;
+    private Button mSendTextBtn;
     private BluetoothAdapter mBTAdapter;
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
     private ListView mDevicesListView;
     private CheckBox mLED1;
+    private TextView mTextToSend;
 
     private Handler mHandler; // Our main handler that will receive callback notifications
     private ConnectedThread mConnectedThread; // bluetooth background worker thread to send and receive data
@@ -66,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
         mOffBtn = (Button)findViewById(R.id.off);
         mDiscoverBtn = (Button)findViewById(R.id.discover);
         mListPairedDevicesBtn = (Button)findViewById(R.id.PairedBtn);
+        mSendTextBtn = (Button)findViewById(R.id.SendFreeTextbutton);
         mLED1 = (CheckBox)findViewById(R.id.checkboxLED1);
+        mTextToSend = (TextView)findViewById(R.id.FreeText);
 
         mBTArrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
         mBTAdapter = BluetoothAdapter.getDefaultAdapter(); // get a handle on the bluetooth radio
@@ -142,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
                     discover(v);
                 }
             });
+            mSendTextBtn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    SendText(v);
+                }
+            });
         }
     }
 
@@ -197,6 +207,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Bluetooth not on", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    private void SendText(View view){
+        mConnectedThread.write(mTextToSend.getText().toString());
     }
 
     final BroadcastReceiver blReceiver = new BroadcastReceiver() {
